@@ -10,13 +10,15 @@ class UsersController < ApplicationController
   end
   
   def edit
-    
+    @user = User.find(params[:id])
   end
   
   def update
     if current_user.update(user_params)
-    
-   else
+      flash[:notice] = "更新しました"
+      redirect_to root_path
+    else
+        flash[:alert] ="更新できませんでした"
         redirect_to edit_user_path(current_user)
    end
      
@@ -25,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.fetch(:user, {}).permit(:name)
+    params.require(:user).permit(:name, :introduction, :image)
   end
 end
