@@ -24,7 +24,7 @@
                             <% end %>
                         </div>
                     </td>
-                    <td><%= room.name %><%= link_to room_path(room) %></td>
+                    <td><%= link_to room.name, room_path(room) %></td>
                     <td><%= room.introduction %></td>
                     <td><%= room.fee %></td>
                     <td><%= room.created_at.to_s(:datetime_jp) %></td>

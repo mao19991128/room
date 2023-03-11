@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @rooms = current_user.rooms
+    @rooms = Room.all
   end
 
   def new
@@ -23,8 +23,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @rooms = current_user.rooms
     @room = Room.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def edit

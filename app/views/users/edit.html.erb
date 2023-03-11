@@ -2,16 +2,16 @@
 
 <%= form_with model:@user do |f| %>
 
-    <%= f.label :image %>
+    <%= f.label :image, "画像" %>
     <%= f.file_field :image %> 
   
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "ユーザー名" %><br />
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :intrduction %><br />
+    <%= f.label :intrduction, "自己紹介" %><br />
     <%= f.text_area :introduction, :size=>"60x10" %>
   </div>
     
