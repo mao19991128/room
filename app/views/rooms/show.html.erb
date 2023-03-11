@@ -1,0 +1,33 @@
+<h2>施設詳細<h2>
+<%= link_to "戻る",:back %>
+<%= link_to "編集", edit_room_path %>
+
+<% @rooms.each do |room| %>
+    <div class="room_image">
+        <% if room.image? %>
+            <%= image_tag  room.image.thumb.url %>
+        <% else %>
+            <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+        <% end %>
+    </div>
+    <%= room.name %></td>
+    <%= room.introduction %>
+    <%= room.fee %>
+<% end %>
+
+<%= form_with model: @room do |f| %>
+
+    <div class="field">
+        <%= f.label :name,"施設名" %><br />
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= f.label :introduction,"紹介文" %><br />
+        <%= f.text_area :introduction, :size=>"60x10"  %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit "予約する" %>
+    </div>
+<% end %>
