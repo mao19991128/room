@@ -12,4 +12,12 @@ class Reservation < ApplicationRecord
             errors.add(:check_out, "は開始日より後の日付を入力してください")
         end
     end
+
+    def days
+        days = (check_out.to_date - check_in.to_date).to_i
+    end
+
+    def sum_fee
+        sum_fee = (days * number * room.fee)
+    end
 end

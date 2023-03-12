@@ -1,2 +1,46 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h2>予約済み一覧</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>合計金額</th>
+            <th>チェックイン</th>
+            <th>チェックアウト</th>
+            <th>予約確定日時</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% if @reservations.count > 0 %>
+            <% @reservations.each do |reservation| %>
+                <tr>
+                    <td>
+                        <div class="room_image">
+                            <% if reservation.room.image? %>
+                                <%= image_tag  reservation.room.image.thumb.url %>
+                            <% else %>
+                                <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+                            <% end %>
+                        </div>
+                    </td>
+                    <td><%= link_to reservation.room.name, room_path(reservation.room) %></td>
+                    <td><%= reservation.room.introduction %></td>
+                    <td><%= reservation.sum_fee %></td>
+                    <td><%= reservation.check_in.strftime("%Y/%m/%d") %></td>
+                    <td><%= reservation.check_out.strftime("%Y/%m/%d") %></td>
+                    <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+                    <td>
+                        <%= link_to "予約を削除", reservation, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                    </td>
+                </tr>
+            <% end %>
+        <% else %>
+            <td colspan ="6">現在登録している施設はありません</td>
+        <% end %>
+    </tbody>
+</table>
+        

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/mypage' => 'users#mypage'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   post 'users/:id/edit' => 'users#show'
+  post 'reservations/:id' => 'reservations#index'
 end

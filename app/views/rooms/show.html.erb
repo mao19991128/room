@@ -31,6 +31,9 @@
         <%= f.text_field :number %>
     </div>
 
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :user_id, value: @user.id%>
+
     <div class="actions">
         <%= f.submit "予約する" %>
     </div>
