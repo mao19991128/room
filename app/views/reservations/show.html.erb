@@ -1,9 +1,9 @@
 <h2>予約内容の確認</h2>
 
     <h3>チェックイン</h3>
-    <%= @reservation.check_in.to_s(:datetime_jp) %>
+    <%= @reservation.check_in.strftime("%Y/%m/%d") %>
     <h3>チェックアウト</h3>
-    <%= @reservation.check_out.to_s(:datetime_jp) %>
+    <%= @reservation.check_out.strftime("%Y/%m/%d") %>
     <h3>日数</h3>
     <%= @reservation.days %>
     <h3>人数</h3>

@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#index'
   get 'pages/show'
+  resources :rooms do
+    collection do
+      get 'search'
+    end
+  end
   resources :users, only: [:show, :edit, :update]
   resources :rooms
   resources :reservations

@@ -61,3 +61,5 @@ gem 'rmagick'
 gem 'mini_magick'
 
 gem 'pry-rails'
+
+gem 'ransack'

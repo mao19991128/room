@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @rooms = Room.all
@@ -46,8 +47,17 @@ class RoomsController < ApplicationController
   def destroy
   end
 
+  def search
+    @results = @q.result
+    @numbers = @q.result.count
+  end
+
   private
   def room_params
     params.require(:room).permit(:name, :introduction, :image, :fee, :created_at, :address)
+  end
+
+  def set_q
+    @q = Room.ransack(params[:q])
   end
 end

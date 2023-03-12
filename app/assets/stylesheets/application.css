@@ -6,7 +6,7 @@ header {
     justify-content: space-between;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    background-color: #1c1d3b;
+    background-color: lightblue;
     height: 80px
 }
 
@@ -20,7 +20,6 @@ nav {
     height: 50px;
     max-width: 1000px;
     margin: 0 auto;
-    left: 650px;
 }
 
 .menu > li {
@@ -28,7 +27,7 @@ nav {
     width: 70px;
     height: 50px;
     line-height: 50px;
-    background: #1c1d3b
+    background: lightblue;
 }
 
 .menu > li a {
@@ -137,12 +136,9 @@ li.menu__single:hover ul.menu__second-level {
 
 .icon {
     position: relative;
-    bottom:50px;
-    left:560px;
-    width:5px;
-    height:5px;
+    bottom: 40px;
+    right:50px;
 }
-
 .room_image {
     width: 30%;
     height: 30%;
