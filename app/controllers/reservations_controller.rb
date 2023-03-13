@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
 
   def index
     @user = current_user
-    @reservations = Reservation.all
+    @reservations = User.where(id: current_user.id)
   end
 
   def new
