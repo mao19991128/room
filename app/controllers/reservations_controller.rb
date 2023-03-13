@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
 
   def index
     @user = current_user
-    @reservations = User.where(id: current_user.id)
+    @reservations = current_user.reservations
   end
 
   def new
@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
 
   def create
     @room = Room.find_by(params[:reservation][:room_id])
-    @user = User.find_by(params[:reservation][:user_id])
+    @user = User.find_by(params[:reservation][:room_id])
     @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :number,:user_id, :room_id))
     if @reservation.save
       flash[:notice] = "予約の確定に移ります"
