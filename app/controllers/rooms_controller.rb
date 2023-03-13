@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   before_action :set_q, only: [:index, :search]
 
   def index
-    @rooms = Room.all
+    @rooms = current_user.rooms
   end
 
   def new
