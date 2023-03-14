@@ -143,3 +143,9 @@ li.menu__single:hover ul.menu__second-level {
     width: 30%;
     height: 30%;
 }
+
+.potepan {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 30px;
+}
