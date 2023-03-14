@@ -1,0 +1,41 @@
+<h1>登録済み一覧</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>料金</th>
+            <th>作成日</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @rooms.count > 0 %>
+            <% @rooms.each do |room| %>
+                <tr>
+                    <td>
+                        <div class="room_image">
+                            <% if room.image? %>
+                                <%= image_tag  room.image.thumb.url %>
+                            <% else %>
+                                <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+                            <% end %>
+                        </div>
+                    </td>
+                    <td><%= link_to room.name, room_path(room) %></td>
+                    <td><%= room.introduction %></td>
+                    <td><%= room.fee %></td>
+                    <td><%= room.created_at.to_s(:datetime_jp) %></td>
+                    <td><%= link_to "編集", edit_room_path(room) %>
+                        <%= link_to "削除", room, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                    </td>
+                </tr>
+            <% end %>
+        <% else %>
+            <td colspan ="6">現在登録している施設はありません</td>
+        <% end %>
+    </tbody>
+</table>
+        
